@@ -1,1 +1,45 @@
-/* Пиши стили тут */
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 2px;
+}
+
+.star-filled {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/star.svg');
+    background-size: contain;
+    opacity: 0;
+}
+
+.star-empty {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/star-empty.svg');
+    background-size: contain;
+    pointer-events: none;
+}
+
+.star-rating input:hover ~ .star-container .star-filled,
+.star-container:hover .star-filled,
+.star-container:hover ~ .star-container .star-filled {
+    opacity: 1;
+}
+
+.star-rating input:checked ~ .star-container .star-filled {
+    opacity: 1;
+}
